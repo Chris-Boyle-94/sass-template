@@ -1,0 +1,55 @@
+@use "sass:map";
+
+// COLORS
+$grey: #242424;
+$darkerGrey: #181818;
+$lighterGrey: #434343;
+$silver: silver;
+$white: #fff;
+
+// FONTS
+$Nunito: "Nunito Sans", sans-serif;
+$Roboto: "Roboto", sans-serif;
+
+// SIZES
+$breakpoints: (
+    tablet: 768px,
+    mobile: 375px,
+);
+$XXS: 0.5rem;
+$XS: 1rem;
+$S: 1.5rem;
+$M: 3rem;
+$L: 5rem;
+$XL: 7rem;
+$XXL: 9rem;
+
+// NAMED VARIABLES
+$appBackground: $darkerGrey;
+$cardBackgroundPrimary: $grey;
+$cardBackgroundHover: red;
+$cardTextColor: $white;
+// $shadow: 5px 5px 5px $shadowColor;
+// $btnColor: $bittersweet;
+// $headerSize: $L;
+// $navBackgroundColor: $naplesYellow;
+// $shadowColor: rgba($gunmetal, 0.1);
+// $textColor: $gunmetal;
+// $textSize: $S;
+// $transition: 0.1s all ease-in-out;
+// FUNCTIONS
+@mixin flexColCenter() {
+    // center something with flex
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin mq($key) {
+    // mobile-first media queries: insert key for that think and ABOVE
+    $size: map.get($breakpoints, $key);
+    @media only screen and (max-width: $size) {
+        @content;
+    }
+}
